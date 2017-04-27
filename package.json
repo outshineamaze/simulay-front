@@ -1,18 +1,18 @@
 {
-  "name": "iview-project",
-  "version": "2.0.0",
-  "description": "A base project with Vue.js2、Vue-Router、webpack2 and with iView2.",
+  "name": "simulay-front",
+  "version": "1.0.0",
+  "description": "A simulay-front project with Vue.js2、Vue-Router、webpack2 and with iView2.",
   "main": "index.js",
   "scripts": {
     "init": "webpack --progress --config webpack.dev.config.js",
-    "dev": "webpack-dev-server --content-base ./ --open --inline --hot --compress --history-api-fallback --config webpack.dev.config.js",
+    "dev": "webpack-dev-server --content-base ./ --open --inline --hot --compress --port 8089 --host 127.0.0.1 --history-api-fallback --config webpack.dev.config.js",
     "build": "webpack --progress --hide-modules --config webpack.prod.config.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iview/iview-project.git"
   },
-  "author": "Aresn",
+  "author": "laynezhou",
   "license": "MIT",
   "dependencies": {
     "vue": "^2.2.6",
@@ -45,8 +45,5 @@
     "webpack-dev-server": "^2.4.1",
     "webpack-merge": "^3.0.0"
   },
-  "bugs": {
-    "url": "https://github.com/iview/iview-project/issues"
-  },
-  "homepage": "https://www.iviewui.com"
+  "homepage": "www.outshine.me"
 }
