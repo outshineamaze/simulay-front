@@ -36,9 +36,19 @@ module.exports = merge(webpackBaseConfig, {
         //     }
         // }),
         new HtmlWebpackPlugin({
-            filename: '../index.html',
+            filename: '../index_prod.html',
             template: './src/template/index.ejs',
             inject: false
-        })
+        }),
+        new HtmlWebpackPlugin({
+            filename: '../api_prod.html',
+            template: './src/template/api.ejs',
+            inject: false
+        }),
+        new HtmlWebpackPlugin({
+            filename: '../container_prod.html',
+            template: './src/template/container.ejs',
+            inject: false
+        }),
     ]
 });

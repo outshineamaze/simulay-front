@@ -9,7 +9,7 @@
     position: relative;
     top: 10px;
     left: 40px;
-    background-image: url('/dist/logo.png');
+    background-image: url('../images/logo.png');
     background-size: cover;
 }
 .layout-nav{
@@ -46,3 +46,4 @@
     padding: 10px 0 20px;
     color: #9ea7b4;
 }
+

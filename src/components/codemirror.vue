@@ -1,6 +1,24 @@
+<style>
+
+    .CodeMirror-focused .cm-matchhighlight {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFklEQVQI12NgYGBgkKzc8x9CMDAwAAAmhwSbidEoSQAAAABJRU5ErkJggg==);
+        background-position: bottom;
+        background-repeat: repeat-x;
+    }
+    .cm-matchhighlight {background-color: lightgreen}
+    .CodeMirror-selection-highlight-scrollbar {background-color: green}
+    .CodeMirror-Card{
+        height: 500px;
+    }
+    .CodeMirror-Container{
+        height: 450px;
+    }
+
+</style>
 <template>
-    <div>
-            <Card  dis-hover="false" padding=0 >
+    <Row type="flex" justify="start" :guter="16" >
+    <Col span="12" >
+            <Card class="CodeMirror-Card" dis-hover="false" padding=0 >
                 <p slot="title">
                     <Icon type="document-text"></Icon>
                     TEXT/OCTAVE（MATLAB）
@@ -9,21 +27,44 @@
                     <Icon type="code"></Icon>
                     复制
                 </a>
+                <div class="CodeMirror-Container">
                 <!-- codemirror -->
-                <codemirror v-model="code" 
+                <codemirror v-model="code"
+                            ref="myEditor"
                             :options="editorOption" 
-                            @change="onEditorCodeChange"></codemirror>
+                            @change="onEditorCodeChange">
+
+                </codemirror>
+              </div>
             </Card>
     <br>
     <Row type="flex" justify="end" class="code-row-bg">
-        <Col span="2" >
+        <Col span="4" >
+        <Button type="primary" @click="runCode"><Icon type="arrow-right-b"></Icon>运行</Button>
+        </Col>
+        <Col span="4" >
         <Button type="primary" @click="saveCode">保存</Button>
         </Col>
-        <Col span="2" >
-        <Button type="primary" @click="runCode">运行</Button>
-        </Col>
     </Row>
-    </div>
+
+    </Col>
+    <Col span="10" >
+            <Card class="CodeMirror-Card" dis-hover="false" padding=0 >
+
+                <Tabs>
+                    <Tab-pane label="imput">
+                        <Input v-model="value8" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入..."></Input>
+                    </Tab-pane>
+                    <Tab-pane label="output">
+
+                    </Tab-pane>
+                    <Tab-pane label="其他信息">
+
+                    </Tab-pane>
+                </Tabs>
+            </Card>
+    </Col>
+</Row>
 </template>
 
 <script>
@@ -63,9 +104,14 @@
     require('codemirror/addon/fold/markdown-fold.js')
     require('codemirror/addon/fold/xml-fold.js')
 
+    import codeService from '../services/code.js'
+
     const saveCode = (that) => {
         window.localStorage.setItem('current_code', that.code);
         that.$Message.info('代码已经保存');
+        codeService.edit({code: 'this is code demo'}).then(function (resutl) {
+             console.log(resutl);
+        });
     }
 
     const getCodeFromStorage = () => {
@@ -107,7 +153,13 @@
                     showCursorWhenSelecting: true,
                     theme: "base16-light",
                     extraKeys: { "Ctrl": "autocomplete" }
-                }
+                },
+                tabs: 1,
+            }
+        },
+        computed: {
+            editor() {
+                return this.$refs.myEditor.editor
             }
         },
         methods: {
@@ -123,13 +175,26 @@
             },
             onEditorCodeChange: function (newCode) {
                 //window.localStorage.setItem('code_temp', newCode);
+            },
+            handleTabRemove: function(name) {
+                if (this.tabs > 1) {
+                    this['tab' + name] = false;
+                }
+
+            },
+            handleTabsAdd () {
+                this.tabs ++;
             }
         },
         mounted() {
+
+            console.log(this.$route.params.simulationId);
             setTimeout(() => {
                 this.editorOption.lineNumbers = true
             this.editorOption.styleActiveLine = true
         }, 3000)
+            console.log('this is current editor object', this.editor)
+            this.editor.setSize('auto', '445');
         },
         beforeDestroy () {
             if (this.code !== window.localStorage.getItem('current_code')) {
@@ -147,14 +212,13 @@
     }
 </script>
 
-<style>
-    .CodeMirror-focused .cm-matchhighlight {
-        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFklEQVQI12NgYGBgkKzc8x9CMDAwAAAmhwSbidEoSQAAAABJRU5ErkJggg==);
-        background-position: bottom;
-        background-repeat: repeat-x;
-    }
-    .cm-matchhighlight {background-color: lightgreen}
-    .CodeMirror-selection-highlight-scrollbar {background-color: green}
+data () {
+return {
 
-
-</style></script>
+}
+},
+methods: {
+handleTabRemove (name) {
+this['tab' + name] = false;
+}
+}

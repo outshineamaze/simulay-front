@@ -1,6 +1,5 @@
 <template>
     <div class="layout">
-        <Affix>
         <Menu mode="horizontal"  theme="dark" active-name="1">
             <div class="layout-logo"></div>
             <div class="layout-nav">
@@ -56,39 +55,40 @@
            </div>
         </Menu>
 
-</Affix>
         <div class="layout-content">
             <Row>
                 <i-col span="5">
                     <Menu active-name="1-2" width="auto" :open-names="['1','2','3']">
                         <Submenu name="1">
                             <template slot="title">
+                                <Icon type="ios-analytics"></Icon>
+                                在线调试
+                            </template>
+                            <Menu-item name="3-1">编辑器</Menu-item>
+                            <Menu-item name="3-2">命令行</Menu-item>
+                        </Submenu>
+
+                        <Submenu name="2">
+                            <template slot="title">
                                 <Icon type="ios-navigate"></Icon>
                                 波形仿真
                             </template>
                             <router-link to="/code/add">
-                            <Menu-item name="1-1">QAM仿真</Menu-item>
+                            <Menu-item name="1-1">教学仿真</Menu-item>
                                 </router-link>
                             <router-link to="/code/edit">
-                            <Menu-item name="1-2">QPSK仿真</Menu-item>
+                            <Menu-item name="1-2">自定义仿真</Menu-item>
                                 </router-link>
-                        </Submenu>
-                        <Submenu name="2">
-                            <template slot="title">
-                                <Icon type="ios-keypad"></Icon>
-                                数值分析
-                            </template>
-                            <Menu-item name="2-1">实验结果管理</Menu-item>
-                            <Menu-item name="2-2">导出数据</Menu-item>
                         </Submenu>
                         <Submenu name="3">
                             <template slot="title">
-                                <Icon type="ios-analytics"></Icon>
-                                在线matlab
+                                <Icon type="ios-keypad"></Icon>
+                                实验报告
                             </template>
-                            <Menu-item name="3-1">命令行模式</Menu-item>
-                            <Menu-item name="3-2">图形模式</Menu-item>
+                            <Menu-item name="2-1">历史实验结果</Menu-item>
+                            <Menu-item name="2-2">常用实验报告</Menu-item>
                         </Submenu>
+
                     </Menu>
                 </i-col>
                 <i-col span="19">
@@ -154,7 +154,7 @@
         },
         mounted() {
             // use editor object...
-            //this.editor.focus()
+            this.editor.focus()
             //console.log('this is current editor object', this.editor)
         }
     }
