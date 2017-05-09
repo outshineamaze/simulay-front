@@ -1,16 +1,16 @@
-webpackJsonp([0],Array(23).concat([
-/* 23 */
+webpackJsonp([0],Array(22).concat([
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(57)
+__webpack_require__(56)
 
 var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(38),
+  __webpack_require__(37),
   /* template */
-  __webpack_require__(64),
+  __webpack_require__(63),
   /* scopeId */
   null,
   /* cssModules */
@@ -37,14 +37,14 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 23 */,
 /* 24 */,
 /* 25 */,
 /* 26 */,
 /* 27 */,
 /* 28 */,
 /* 29 */,
-/* 30 */,
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -239,7 +239,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -402,7 +402,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -530,7 +530,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -686,7 +686,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -814,7 +814,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -822,7 +822,7 @@ module.exports = Component.exports
 
 (function(mod) {
   if (true) // CommonJS
-    mod(__webpack_require__(3), __webpack_require__(31), __webpack_require__(35));
+    mod(__webpack_require__(3), __webpack_require__(30), __webpack_require__(34));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "./searchcursor", "../scroll/annotatescrollbar"], mod);
   else // Plain browser env
@@ -917,13 +917,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 37 */,
-/* 38 */
+/* 36 */,
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_code_js__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_code_js__ = __webpack_require__(48);
+//
 //
 //
 //
@@ -995,73 +996,67 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 // styleSelectedText
-__webpack_require__(79);
-__webpack_require__(31);
+__webpack_require__(78);
+__webpack_require__(30);
 
 // hint
-__webpack_require__(75);
-__webpack_require__(52);
-__webpack_require__(78);
+__webpack_require__(74);
+__webpack_require__(51);
+__webpack_require__(77);
 
 // highlightSelectionMatches
+__webpack_require__(34);
 __webpack_require__(35);
-__webpack_require__(36);
-__webpack_require__(31);
-__webpack_require__(76);
+__webpack_require__(30);
+__webpack_require__(75);
 
 // keyMap
-__webpack_require__(81);
-__webpack_require__(33);
-__webpack_require__(68);
-__webpack_require__(32);
-__webpack_require__(50);
-__webpack_require__(31);
-__webpack_require__(77);
 __webpack_require__(80);
+__webpack_require__(32);
+__webpack_require__(67);
+__webpack_require__(31);
+__webpack_require__(49);
+__webpack_require__(30);
+__webpack_require__(76);
+__webpack_require__(79);
 
 // foldGutter
-__webpack_require__(51);
+__webpack_require__(50);
+__webpack_require__(68);
 __webpack_require__(69);
+__webpack_require__(33);
 __webpack_require__(70);
-__webpack_require__(34);
 __webpack_require__(71);
 __webpack_require__(72);
 __webpack_require__(73);
-__webpack_require__(74);
 
 
 
 const saveCode = that => {
     window.localStorage.setItem('current_code', that.code);
     that.$Message.info('代码已经保存');
-    let codeStruct = {
-        stdin: that.stdin,
-        cmd: '',
-        files_name: 'main.m',
-        files_content: that.code
-    };
-
-    __WEBPACK_IMPORTED_MODULE_0__services_code_js__["a" /* default */].edit(codeStruct).then(function (result) {
-        console.log(result.stdout);
-        that.stdout = result.stdout;
-        if (that.stdout) {
-            that.tabIndex = 'stdout';
-        }
+    __WEBPACK_IMPORTED_MODULE_0__services_code_js__["a" /* default */].edit({ code: 'this is code demo' }).then(function (resutl) {
+        console.log(resutl);
     });
 };
+
 const getCodeFromStorage = () => {
     return window.localStorage.getItem('current_code');
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
-        var defaultCode = '1+1';
+        var defaultCode = `%numbers
+[1234 1234i 1234j]
+[.234 .234j 2.23i]
+[23e2 12E1j 123D-4 0x234]
+%strings
+'asda''a'
+"asda""a"
+    `;
         var currentCode = getCodeFromStorage();
         return {
             code: currentCode === null ? defaultCode : currentCode,
-            stdin: '',
-            stdout: '',
-            tabIndex: "stdin",
             editorOption: {
                 tabSize: 4,
                 styleActiveLine: true,
@@ -1102,6 +1097,17 @@ const getCodeFromStorage = () => {
         runCode: function () {
             this.saveCode();
             this.$Message.info('正在运行。。。');
+        },
+        onEditorCodeChange: function (newCode) {
+            //window.localStorage.setItem('code_temp', newCode);
+        },
+        handleTabRemove: function (name) {
+            if (this.tabs > 1) {
+                this['tab' + name] = false;
+            }
+        },
+        handleTabsAdd() {
+            this.tabs++;
         }
     },
     mounted() {
@@ -1130,6 +1136,7 @@ const getCodeFromStorage = () => {
 });
 
 /***/ }),
+/* 38 */,
 /* 39 */,
 /* 40 */,
 /* 41 */,
@@ -1139,34 +1146,29 @@ const getCodeFromStorage = () => {
 /* 45 */,
 /* 46 */,
 /* 47 */,
-/* 48 */,
-/* 49 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 class codeService {
     edit(data) {
-        let params = data || {};
-        let opts = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        };
+        let defultData = { 'uid': 123123123 };
+        let params = Object.assign({}, data, defultData);
 
-        return fetch('/simulation/code/run', opts).then(function (response) {
-            if (response.ok) {
-                return response.json();
-            } else {
-                alert("网络请求失败" + res.status);
-            }
+        return fetch('/api/code/edit', params).then(function (response) {
+            return response.json();
         });
     }
 }
 
 // 实例化后导出，全局单例
 /* harmony default export */ __webpack_exports__["a"] = (new codeService());
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 50 */
@@ -1181,29 +1183,23 @@ class codeService {
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 52 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 52 */,
 /* 53 */,
 /* 54 */,
 /* 55 */,
-/* 56 */,
-/* 57 */
+/* 56 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
+/* 57 */,
 /* 58 */,
 /* 59 */,
 /* 60 */,
 /* 61 */,
 /* 62 */,
-/* 63 */,
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1303,58 +1299,32 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "dis-hover": "false",
       "padding": "0"
     }
-  }, [_c('Tabs', {
-    model: {
-      value: (_vm.tabIndex),
-      callback: function($$v) {
-        _vm.tabIndex = $$v
-      },
-      expression: "tabIndex"
-    }
-  }, [_c('Tab-pane', {
+  }, [_c('Tabs', [_c('Tab-pane', {
     attrs: {
-      "name": "stdin",
-      "label": "input"
+      "label": "imput"
     }
   }, [_c('Input', {
     attrs: {
       "type": "textarea",
       "autosize": {
-        minRows: 10,
-        maxRows: 20
+        minRows: 2,
+        maxRows: 5
       },
       "placeholder": "请输入..."
     },
     model: {
-      value: (_vm.stdin),
+      value: (_vm.value8),
       callback: function($$v) {
-        _vm.stdin = $$v
+        _vm.value8 = $$v
       },
-      expression: "stdin"
+      expression: "value8"
     }
   })], 1), _vm._v(" "), _c('Tab-pane', {
     attrs: {
-      "name": "stdout",
       "label": "output"
     }
-  }, [_c('Input', {
+  }), _vm._v(" "), _c('Tab-pane', {
     attrs: {
-      "type": "textarea",
-      "autosize": {
-        minRows: 10,
-        maxRows: 15
-      }
-    },
-    model: {
-      value: (_vm.stdout),
-      callback: function($$v) {
-        _vm.stdout = $$v
-      },
-      expression: "stdout"
-    }
-  })], 1), _vm._v(" "), _c('Tab-pane', {
-    attrs: {
-      "name": "other",
       "label": "其他信息"
     }
   })], 1)], 1)], 1)], 1)
@@ -1368,10 +1338,10 @@ if (false) {
 }
 
 /***/ }),
+/* 64 */,
 /* 65 */,
 /* 66 */,
-/* 67 */,
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -1590,7 +1560,7 @@ if (false) {
 
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -1701,7 +1671,7 @@ CodeMirror.registerHelper("fold", "include", function(cm, start) {
 
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -1766,7 +1736,7 @@ CodeMirror.registerGlobalHelper("fold", "comment", function(mode) {
 
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -1774,7 +1744,7 @@ CodeMirror.registerGlobalHelper("fold", "comment", function(mode) {
 
 (function(mod) {
   if (true) // CommonJS
-    mod(__webpack_require__(3), __webpack_require__(34));
+    mod(__webpack_require__(3), __webpack_require__(33));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "./foldcode"], mod);
   else // Plain browser env
@@ -1918,7 +1888,7 @@ CodeMirror.registerGlobalHelper("fold", "comment", function(mode) {
 
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -1972,7 +1942,7 @@ CodeMirror.registerHelper("fold", "indent", function(cm, start) {
 
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -2027,7 +1997,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -2215,7 +2185,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -2659,7 +2629,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -2685,7 +2655,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 (function(mod) {
   if (true) // CommonJS
-    mod(__webpack_require__(3), __webpack_require__(36));
+    mod(__webpack_require__(3), __webpack_require__(35));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "./matchesonscrollbar"], mod);
   else // Plain browser env
@@ -2830,7 +2800,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -2846,7 +2816,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 (function(mod) {
   if (true) // CommonJS
-    mod(__webpack_require__(3), __webpack_require__(31), __webpack_require__(32));
+    mod(__webpack_require__(3), __webpack_require__(30), __webpack_require__(31));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "./searchcursor", "../dialog/dialog"], mod);
   else // Plain browser env
@@ -3088,7 +3058,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -3166,7 +3136,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -3291,7 +3261,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -3302,7 +3272,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 (function(mod) {
   if (true) // CommonJS
-    mod(__webpack_require__(3), __webpack_require__(31), __webpack_require__(33));
+    mod(__webpack_require__(3), __webpack_require__(30), __webpack_require__(32));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../lib/codemirror", "../addon/search/searchcursor", "../addon/edit/matchbrackets"], mod);
   else // Plain browser env
@@ -3893,7 +3863,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -4689,4 +4659,3 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
 
 /***/ })
 ]));
-//# sourceMappingURL=0.chunk.js.map

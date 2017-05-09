@@ -2,8 +2,9 @@ import { lib, hterm } from './hterm_all.js'
 import io from './socket.io.js'
 function initSocket() {
 var term;
-var socket = io('127.0.0.1:3000', {path: '/wetty/socket.io'});
+var socket = io(location.origin, {path: '/wetty/socket.io'});
 var buf = '';
+
 function Wetty(argv) {
     this.argv_ = argv;
     this.io = null;
@@ -63,8 +64,8 @@ Wetty.prototype.onTerminalResize = function(col, row) {
         }
         term.io.writeUTF16(data);
     });
-
     socket.on('disconnect', function() {
+        term.io.writeUTF16('Socket.io connection closed');
         console.log("Socket.io connection closed");
     });
     return socket;

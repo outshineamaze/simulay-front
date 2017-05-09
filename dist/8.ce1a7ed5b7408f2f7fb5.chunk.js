@@ -1,13 +1,13 @@
 webpackJsonp([8],{
 
-/***/ 22:
+/***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(37),
+  __webpack_require__(36),
   /* template */
-  __webpack_require__(67),
+  __webpack_require__(66),
   /* scopeId */
   null,
   /* cssModules */
@@ -35,7 +35,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 37:
+/***/ 36:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -102,7 +102,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 67:
+/***/ 66:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -185,4 +185,3 @@ if (false) {
 /***/ })
 
 });
-//# sourceMappingURL=8.chunk.js.map

@@ -1,25 +1,25 @@
-webpackJsonp([2],{
+webpackJsonp([4],{
 
-/***/ 30:
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(55)
+__webpack_require__(57)
 
 var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(45),
+  __webpack_require__(40),
   /* template */
-  __webpack_require__(61),
+  __webpack_require__(65),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/laynezhou/graduate_design/simulay/simulay-front/src/views/list_teach.vue"
+Component.options.__file = "/Users/laynezhou/graduate_design/simulay/simulay-front/src/views/exp_history.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] list_teach.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] exp_history.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -28,9 +28,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4385f41b", Component.options)
+    hotAPI.createRecord("data-v-b563dc0a", Component.options)
   } else {
-    hotAPI.reload("data-v-4385f41b", Component.options)
+    hotAPI.reload("data-v-b563dc0a", Component.options)
   }
 })()}
 
@@ -39,11 +39,21 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 45:
+/***/ 40:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -98,60 +108,65 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 55:
+/***/ 57:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 61:
+/***/ 65:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "list_teach"
+    staticClass: "exp_list"
   }, [_c('Card', {
-    staticClass: "list_teach_item"
+    staticClass: "exp_list_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
   }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
-    staticClass: "list_teach_item"
+    staticClass: "exp_list_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
   }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
-    staticClass: "list_teach_item"
+    staticClass: "exp_list_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
   }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
-    staticClass: "list_teach_item"
+    staticClass: "exp_list_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
   }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
-    staticClass: "list_teach_item"
+    staticClass: "exp_list_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_c('h3', [_vm._v("仿真")])])])], 1)
+  }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('div', {
+    staticClass: "exp_list_page"
+  }, [_c('Page', {
+    attrs: {
+      "total": 100
+    }
+  })], 1)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-4385f41b", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-b563dc0a", module.exports)
   }
 }
 
 /***/ })
 
 });
-//# sourceMappingURL=2.chunk.js.map

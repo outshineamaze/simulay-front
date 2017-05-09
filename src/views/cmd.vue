@@ -29,7 +29,8 @@
             console.log('inti socket end');
         },
         destroyed() {
-            this.socket.emit('disconnect');
+            console.log('start disconnect ');
+            this.socket.disconnect();
             console.log('disconnect');
         }
     }

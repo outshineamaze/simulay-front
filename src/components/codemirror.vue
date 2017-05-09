@@ -51,15 +51,14 @@
     <Col span="10" >
             <Card class="CodeMirror-Card" dis-hover="false" padding=0 >
 
-                <Tabs>
-                    <Tab-pane label="imput">
-                        <Input v-model="value8" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入..."></Input>
+                <Tabs v-model="tabIndex" >
+                    <Tab-pane name="stdin" label="input">
+                        <Input v-model="stdin" type="textarea" :autosize="{minRows: 10,maxRows: 20}" placeholder="请输入..."></Input>
                     </Tab-pane>
-                    <Tab-pane label="output">
-
+                    <Tab-pane name="stdout" label="output">
+                        <Input v-model="stdout" type="textarea" :autosize="{minRows: 10,maxRows: 15}"></Input>
                     </Tab-pane>
-                    <Tab-pane label="其他信息">
-
+                    <Tab-pane  name="other" label="其他信息">
                     </Tab-pane>
                 </Tabs>
             </Card>
@@ -109,29 +108,34 @@
     const saveCode = (that) => {
         window.localStorage.setItem('current_code', that.code);
         that.$Message.info('代码已经保存');
-        codeService.edit({code: 'this is code demo'}).then(function (resutl) {
-             console.log(resutl);
+        let codeStruct = {
+            stdin : that.stdin,
+            cmd :'',
+            files_name : 'main.m',
+            files_content : that.code
+        }
+
+        codeService.edit(codeStruct).then(function (result) {
+            console.log(result.stdout);
+            that.stdout = result.stdout;
+            if (that.stdout) {
+                that.tabIndex = 'stdout';
+            }
         });
     }
-
     const getCodeFromStorage = () => {
         return window.localStorage.getItem('current_code');
     }
 
     export default {
         data() {
-            var defaultCode =
-                        `%numbers
-[1234 1234i 1234j]
-[.234 .234j 2.23i]
-[23e2 12E1j 123D-4 0x234]
-%strings
-'asda''a'
-"asda""a"
-    `
-            var currentCode = getCodeFromStorage()
+            var defaultCode = '1+1';
+            var currentCode = getCodeFromStorage();
             return {
                 code : currentCode === null ? defaultCode : currentCode,
+                stdin: '',
+                stdout: '',
+                tabIndex: "stdin",
                 editorOption: {
                     tabSize: 4,
                     styleActiveLine: true,
@@ -170,21 +174,9 @@
                 saveCode(this);
             },
             runCode: function() {
-                this. saveCode();
+                this.saveCode();
                 this.$Message.info('正在运行。。。');
             },
-            onEditorCodeChange: function (newCode) {
-                //window.localStorage.setItem('code_temp', newCode);
-            },
-            handleTabRemove: function(name) {
-                if (this.tabs > 1) {
-                    this['tab' + name] = false;
-                }
-
-            },
-            handleTabsAdd () {
-                this.tabs ++;
-            }
         },
         mounted() {
 
@@ -211,14 +203,3 @@
         },
     }
 </script>
-
-data () {
-return {
-
-}
-},
-methods: {
-handleTabRemove (name) {
-this['tab' + name] = false;
-}
-}

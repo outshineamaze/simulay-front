@@ -1,11 +1,21 @@
 class codeService {
     edit(data) {
-        let defultData = {'uid': 123123123};
-        let params = Object.assign({}, data, defultData);
+        let params = data || {}
+        let opts = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
 
-        return fetch('/api/code/edit', params).then(
+        return fetch('/simulation/code/run', opts).then(
             function(response) {
-                return response.json()
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    alert("网络请求失败" + res.status)
+                }
             });
     }
 }

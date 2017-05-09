@@ -4,7 +4,7 @@
   "description": "A simulay-front project with Vue.js2、Vue-Router、webpack2 and with iView2.",
   "main": "index.js",
   "scripts": {
-    "init": "webpack --progress --config webpack.dev.config.js",
+    "watch": "webpack --progress --config webpack.dev.config.js --watch",
     "dev": "webpack --progress --config webpack.dev.config.js && webpack-dev-server --content-base ./ --open --inline  --compress --port 8089 --host 127.0.0.1 --hot --history-api-fallback --config webpack.dev.config.js",
     "build": "webpack --progress --hide-modules --config webpack.prod.config.js"
   },

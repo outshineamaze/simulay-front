@@ -70,7 +70,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {},
     mounted() {
         console.log('inti socket');
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__libs_wetty_wetty__["a" /* default */])();
+        this.socket = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__libs_wetty_wetty__["a" /* default */])();
+        console.log('inti socket end');
+    },
+    destroyed() {
+        console.log('start disconnect ');
+        this.socket.disconnect();
+        console.log('disconnect');
     }
 });
 
@@ -215,7 +221,6 @@ lib.ensureRuntimeDependencies_ = function () {
         passed = false;
         break;
       }
-
       obj = obj[names[i]];
     }
   }
@@ -7073,7 +7078,7 @@ hterm.Screen.prototype.setCursorPosition = function (row, column) {
     rowNode.appendChild(node);
   }
 
-  var currentColumn = -3;
+  var currentColumn = 0;
 
   if (rowNode == this.cursorRowNode_) {
     if (column >= this.cursorPosition.column - this.cursorOffset_) {
@@ -16585,36 +16590,41 @@ window.hterm = hterm;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__socket_io_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__socket_io_js__);
 
 
-var term;
-var socket = __WEBPACK_IMPORTED_MODULE_1__socket_io_js___default()('127.0.0.1:3000', { path: '/wetty/socket.io' });
-var buf = '';
-function Wetty(argv) {
-    this.argv_ = argv;
-    this.io = null;
-    this.pid_ = -1;
-}
-
-Wetty.prototype.run = function () {
-    this.io = this.argv_.io.push();
-
-    this.io.onVTKeystroke = this.sendString_.bind(this);
-    this.io.sendString = this.sendString_.bind(this);
-    this.io.onTerminalResize = this.onTerminalResize.bind(this);
-};
-
-Wetty.prototype.sendString_ = function (str) {
-    socket.emit('input', str);
-};
-
-Wetty.prototype.onTerminalResize = function (col, row) {
-    socket.emit('resize', { col: col, row: row });
-};
 function initSocket() {
+    var term;
+    var socket = __WEBPACK_IMPORTED_MODULE_1__socket_io_js___default()(location.origin, { path: '/wetty/socket.io' });
+    var buf = '';
+
+    function Wetty(argv) {
+        this.argv_ = argv;
+        this.io = null;
+        this.pid_ = -1;
+    }
+
+    Wetty.prototype.run = function () {
+        this.io = this.argv_.io.push();
+
+        this.io.onVTKeystroke = this.sendString_.bind(this);
+        this.io.sendString = this.sendString_.bind(this);
+        this.io.onTerminalResize = this.onTerminalResize.bind(this);
+    };
+
+    Wetty.prototype.sendString_ = function (str) {
+        socket.emit('input', str);
+    };
+
+    Wetty.prototype.onTerminalResize = function (col, row) {
+        socket.emit('resize', { col: col, row: row });
+    };
+
     socket.on('connect', function () {
         __WEBPACK_IMPORTED_MODULE_0__hterm_all_js__["a" /* lib */].init(function () {
             __WEBPACK_IMPORTED_MODULE_0__hterm_all_js__["b" /* hterm */].defaultStorage = new __WEBPACK_IMPORTED_MODULE_0__hterm_all_js__["a" /* lib */].Storage.Local();
+            console.log('new lib storrage');
             term = new __WEBPACK_IMPORTED_MODULE_0__hterm_all_js__["b" /* hterm */].Terminal();
             window.term = term;
+            console.log('new term');
+
             term.decorate(document.getElementById('terminal'));
 
             term.setCursorPosition(0, 0);
@@ -16643,10 +16653,11 @@ function initSocket() {
         }
         term.io.writeUTF16(data);
     });
-
     socket.on('disconnect', function () {
+        term.io.writeUTF16('Socket.io connection closed');
         console.log("Socket.io connection closed");
     });
+    return socket;
 }
 /* harmony default export */ __webpack_exports__["a"] = (initSocket);
 
