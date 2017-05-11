@@ -13,6 +13,19 @@
     .CodeMirror-Container{
         height: 450px;
     }
+    .std-input {
+        padding: 5px;
+    }
+    .std-input textarea {
+        outline: none;
+        box-shadow: none;
+        border: none;
+    }
+    .std-input textarea:focus, .std-input textarea:hover{
+        outline: none;
+        box-shadow:none;
+    }
+
 
 </style>
 <template>
@@ -53,10 +66,10 @@
 
                 <Tabs v-model="tabIndex" >
                     <Tab-pane name="stdin" label="input">
-                        <Input v-model="stdin" type="textarea" :autosize="{minRows: 10,maxRows: 20}" placeholder="请输入..."></Input>
+                        <Input class="std-input" v-model="stdin" type="textarea" :autosize="{minRows: 10,maxRows: 20}" placeholder="请输入..."></Input>
                     </Tab-pane>
                     <Tab-pane name="stdout" label="output">
-                        <Input v-model="stdout" type="textarea" :autosize="{minRows: 10,maxRows: 15}"></Input>
+                        <Input class="std-input" v-model="stdout" type="textarea" :autosize="{minRows: 10,maxRows: 15}"></Input>
                     </Tab-pane>
                     <Tab-pane  name="other" label="其他信息">
                     </Tab-pane>
