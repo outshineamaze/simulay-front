@@ -30,25 +30,15 @@ module.exports = merge(webpackBaseConfig, {
                 NODE_ENV: '"production"'
             }
         }),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: false
-        //     }
-        // }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
         new HtmlWebpackPlugin({
             filename: '../index_prod.html',
             template: './src/template/index.ejs',
             inject: false
-        }),
-        new HtmlWebpackPlugin({
-            filename: '../api_prod.html',
-            template: './src/template/api.ejs',
-            inject: false
-        }),
-        new HtmlWebpackPlugin({
-            filename: '../container_prod.html',
-            template: './src/template/container.ejs',
-            inject: false
-        }),
+        })
     ]
 });

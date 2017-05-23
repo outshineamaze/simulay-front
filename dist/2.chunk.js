@@ -1,17 +1,17 @@
 webpackJsonp([2],{
 
-/***/ 30:
+/***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(55)
+__webpack_require__(59)
 
 var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(45),
+  __webpack_require__(48),
   /* template */
-  __webpack_require__(61),
+  __webpack_require__(68),
   /* scopeId */
   null,
   /* cssModules */
@@ -39,11 +39,12 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 45:
+/***/ 48:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -98,14 +99,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 55:
+/***/ 59:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 61:
+/***/ 68:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -115,33 +116,42 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "list_teach_item"
   }, [_c('div', {
     staticStyle: {
-      "text-align": "center"
+      "text-align": "center",
+      "overflow": "hidden"
     }
-  }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
+  }, [_c('img', {
+    staticStyle: {
+      "max-width": "330px",
+      "width": "100%"
+    },
+    attrs: {
+      "src": "/dist/images/default.png"
+    }
+  }), _vm._v(" "), _c('h3', [_vm._v("3D曲面绘制")])])]), _vm._v(" "), _c('Card', {
     staticClass: "list_teach_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
+  }, [_c('h3', [_vm._v("PCM编译码")])])]), _vm._v(" "), _c('Card', {
     staticClass: "list_teach_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
+  }, [_c('h3', [_vm._v("数字调制")])])]), _vm._v(" "), _c('Card', {
     staticClass: "list_teach_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
+  }, [_c('h3', [_vm._v("数字基带信号与AMI/HDB3编译码")])])]), _vm._v(" "), _c('Card', {
     staticClass: "list_teach_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_c('h3', [_vm._v("仿真")])])])], 1)
+  }, [_c('h3', [_vm._v("时分复用2DPSK、2FSK通信系统")])])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

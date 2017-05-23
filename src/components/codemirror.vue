@@ -124,8 +124,8 @@
         let codeStruct = {
             stdin : that.stdin,
             cmd :'',
-            files_name : 'main.m',
-            files_content : that.code
+            name : 'main.m',
+            content : that.code
         }
 
         codeService.edit(codeStruct).then(function (result) {

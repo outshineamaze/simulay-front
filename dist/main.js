@@ -1,4 +1,4 @@
-webpackJsonp([9],[
+webpackJsonp([11],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
@@ -9422,43 +9422,55 @@ const routers = [{
         title: 'Simulay在线仿真'
     }
 }, {
-    path: '/simulation/ide',
+    path: '/api/list',
+    meta: { title: 'API列表' },
+    component: resolve => __webpack_require__.e/* require */(9).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(25)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
+}, {
+    path: '/simulation',
     meta: {
         title: 'Simulay在线仿真'
     },
-    component: resolve => __webpack_require__.e/* require */(6).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(28)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe),
+    component: resolve => __webpack_require__.e/* require */(7).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(32)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe),
     children: [{
-        path: ':simulationId?/edit',
-        component: resolve => __webpack_require__.e/* require */(0).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(23)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
-    }, {
-        path: ':simulationId?/result',
-        component: resolve => __webpack_require__.e/* require */(5).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(24)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
+        path: 'ide',
+        meta: {
+            title: 'Simulay在线仿真'
+        },
+        component: resolve => __webpack_require__.e/* require */(8).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(29)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe),
+        children: [{
+            path: ':simulationId?/edit',
+            component: resolve => __webpack_require__.e/* require */(0).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(23)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
+        }, {
+            path: ':simulationId?/result',
+            component: resolve => __webpack_require__.e/* require */(6).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(24)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
 
-    }, {
-        path: ':simulationId?/analysis',
-        component: resolve => __webpack_require__.e/* require */(8).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(22)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
+        }, {
+            path: ':simulationId?/analysis',
+            component: resolve => __webpack_require__.e/* require */(10).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(22)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
 
+        }, {
+            path: ':simulationId?/setting',
+            component: { template: 'hello' }
+        }]
     }, {
-        path: ':simulationId?/setting',
-        component: { template: 'hello' }
+        path: 'cmd',
+        meta: { title: '命令行' },
+        component: resolve => __webpack_require__.e/* require */(1).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(26)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
+    }, { path: 'experiment/recommend',
+        meta: { title: '推荐实验' },
+        component: resolve => __webpack_require__.e/* require */(4).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(28)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
+    }, { path: 'experiment/history',
+        component: resolve => __webpack_require__.e/* require */(5).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(27)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
+    }, {
+        path: 'list/teach',
+        meta: { title: '实验列表' },
+        component: resolve => __webpack_require__.e/* require */(2).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(31)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
+    }, {
+        path: 'list/custom',
+        meta: { title: '自定义实验列表' },
+        component: resolve => __webpack_require__.e/* require */(3).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(30)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
     }]
-}, {
-    path: '/simulation/cmd',
-    meta: { title: '命令行' },
-    component: resolve => __webpack_require__.e/* require */(1).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(25)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
-}, { path: '/simulation/experiment/recommend',
-    meta: { title: '推荐实验' },
-    component: resolve => __webpack_require__.e/* require */(7).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(27)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
-}, { path: '/simulation/experiment/history',
-    component: resolve => __webpack_require__.e/* require */(4).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(26)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
-}, {
-    path: '/simulation/list/teach',
-    meta: { title: '实验列表' },
-    component: resolve => __webpack_require__.e/* require */(2).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(30)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
-}, {
-    path: '/simulation/list/custom',
-    meta: { title: '自定义实验列表' },
-    component: resolve => __webpack_require__.e/* require */(3).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(29)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)
+
 }];
 /* harmony default export */ __webpack_exports__["a"] = (routers);
 
@@ -9720,6 +9732,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
@@ -9859,9 +9875,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "layout-logo"
   }), _vm._v(" "), _c('div', {
     staticClass: "layout-nav"
-  }, [_c('a', {
+  }, [_c('router-link', {
     attrs: {
-      "href": "/#/simulation/ide/edit"
+      "to": "/simulation/ide/edit"
     }
   }, [_c('Menu-item', {
     attrs: {
@@ -9871,9 +9887,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "ios-navigate"
     }
-  }), _vm._v("\n                    线上仿真平台\n                ")], 1)], 1), _vm._v(" "), _c('a', {
+  }), _vm._v("\n                    线上仿真平台\n                ")], 1)], 1), _vm._v(" "), _c('router-link', {
     attrs: {
-      "href": "/api"
+      "to": "/api/list"
     }
   }, [_c('Menu-item', {
     attrs: {
@@ -9883,9 +9899,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "ios-keypad"
     }
-  }), _vm._v("\n                    数据API\n                ")], 1)], 1), _vm._v(" "), _c('a', {
+  }), _vm._v("\n                    数据API\n                ")], 1)], 1), _vm._v(" "), _c('router-link', {
     attrs: {
-      "href": "/container"
+      "to": "/container"
     }
   }, [_c('Menu-item', {
     attrs: {
@@ -9895,7 +9911,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "ios-analytics"
     }
-  }), _vm._v("\n                    容器管理系统\n                ")], 1)], 1)]), _vm._v(" "), _c('div', {
+  }), _vm._v("\n                    容器管理系统\n                ")], 1)], 1)], 1), _vm._v(" "), _c('div', {
     staticClass: "layout-login"
   }, [_c('Row', {
     staticClass: "code-row-bg",
@@ -9943,101 +9959,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "divided": ""
     }
-  }, [_vm._v("退出")])], 1)], 1)], 1)], 1)], 1)]), _vm._v(" "), _c('div', {
-    staticClass: "layout-content"
-  }, [_c('Row', [_c('i-col', {
-    attrs: {
-      "span": "5"
-    }
-  }, [_c('Menu', {
-    attrs: {
-      "active-name": "1-2",
-      "width": "auto",
-      "open-names": ['1', '2', '3']
-    }
-  }, [_c('Submenu', {
-    attrs: {
-      "name": "1"
-    }
-  }, [_c('template', {
-    slot: "title"
-  }, [_c('Icon', {
-    attrs: {
-      "type": "ios-analytics"
-    }
-  }), _vm._v("\n                            在线调试\n                        ")], 1), _vm._v(" "), _c('router-link', {
-    attrs: {
-      "to": "/simulation/ide/edit"
-    }
-  }, [_c('Menu-item', {
-    attrs: {
-      "name": "3-1"
-    }
-  }, [_vm._v("编辑器")])], 1), _vm._v(" "), _c('router-link', {
-    attrs: {
-      "to": "/simulation/cmd"
-    }
-  }, [_c('Menu-item', {
-    attrs: {
-      "name": "3-2"
-    }
-  }, [_vm._v("命令行")])], 1)], 2), _vm._v(" "), _c('Submenu', {
-    attrs: {
-      "name": "2"
-    }
-  }, [_c('template', {
-    slot: "title"
-  }, [_c('Icon', {
-    attrs: {
-      "type": "ios-navigate"
-    }
-  }), _vm._v("\n                            波形仿真\n                        ")], 1), _vm._v(" "), _c('router-link', {
-    attrs: {
-      "to": "/simulation/list/teach"
-    }
-  }, [_c('Menu-item', {
-    attrs: {
-      "name": "1-1"
-    }
-  }, [_vm._v("教学仿真")])], 1), _vm._v(" "), _c('router-link', {
-    attrs: {
-      "to": "/simulation/list/custom"
-    }
-  }, [_c('Menu-item', {
-    attrs: {
-      "name": "1-2"
-    }
-  }, [_vm._v("自定义仿真")])], 1)], 2), _vm._v(" "), _c('Submenu', {
-    attrs: {
-      "name": "3"
-    }
-  }, [_c('template', {
-    slot: "title"
-  }, [_c('Icon', {
-    attrs: {
-      "type": "ios-keypad"
-    }
-  }), _vm._v("\n                            实验\n                        ")], 1), _vm._v(" "), _c('router-link', {
-    attrs: {
-      "to": "/simulation/experiment/recommend"
-    }
-  }, [_c('Menu-item', {
-    attrs: {
-      "name": "2-2"
-    }
-  }, [_vm._v("推荐实验")])], 1), _vm._v(" "), _c('router-link', {
-    attrs: {
-      "to": "/simulation/experiment/history"
-    }
-  }, [_c('Menu-item', {
-    attrs: {
-      "name": "2-1"
-    }
-  }, [_vm._v("历史实验")])], 1)], 2)], 1)], 1), _vm._v(" "), _c('i-col', {
-    attrs: {
-      "span": "19"
-    }
-  }, [_c('router-view')], 1)], 1)], 1), _vm._v(" "), _c('div', {
+  }, [_vm._v("退出")])], 1)], 1)], 1)], 1)], 1)]), _vm._v(" "), _c('router-view'), _vm._v(" "), _c('div', {
     staticClass: "layout-copy"
   }, [_vm._v("\n        2011-2017 ©laynezhou\n    ")])], 1)
 },staticRenderFns: []}

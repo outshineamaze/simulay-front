@@ -9,7 +9,7 @@ class codeService {
             body: JSON.stringify(data)
         }
 
-        return fetch('/simulation/code/run', opts).then(
+        return fetch('/simulation/ide/runcode', opts).then(
             function(response) {
                 if (response.ok) {
                     return response.json()

@@ -1,21 +1,21 @@
 webpackJsonp([8],{
 
-/***/ 22:
+/***/ 29:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(37),
+  __webpack_require__(46),
   /* template */
-  __webpack_require__(67),
+  __webpack_require__(72),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/laynezhou/graduate_design/simulay/simulay-front/src/components/analysis.vue"
+Component.options.__file = "/Users/laynezhou/graduate_design/simulay/simulay-front/src/views/ide.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] analysis.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] ide.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -24,9 +24,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-f83e3a42", Component.options)
+    hotAPI.createRecord("data-v-73a9a533", Component.options)
   } else {
-    hotAPI.reload("data-v-f83e3a42", Component.options)
+    hotAPI.reload("data-v-73a9a533", Component.options)
   }
 })()}
 
@@ -35,7 +35,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 37:
+/***/ 46:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67,118 +67,101 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
-        return {
-            percent: 0
-        };
+        return {};
     },
-    computed: {
-        color() {
-            let color = '#2db7f5';
-            if (this.percent == 100) {
-                color = '#5cb85c';
-            }
-            return color;
-        }
-    },
-    methods: {
-        add() {
-            if (this.percent >= 100) {
-                return false;
-            }
-            this.percent += 10;
-        },
-        minus() {
-            if (this.percent <= 0) {
-                return false;
-            }
-            this.percent -= 10;
-        }
-    },
-    beforeDestroy() {}
+    computed: {},
+    mounted() {
+        console.log(this.$route.params.simulationId);
+    }
 });
 
 /***/ }),
 
-/***/ 67:
+/***/ 72:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('Card', {
-    staticStyle: {
-      "width": "100%"
-    }
-  }, [_c('Row', {
+  return _c('div', [_c('Menu', {
     attrs: {
-      "type": "flex",
-      "justify": "center"
+      "mode": "horizontal",
+      "theme": _vm.theme1,
+      "active-name": "1"
     }
-  }, [_c('Col', {
+  }, [_c('router-link', {
     attrs: {
-      "span": "4"
+      "to": "/simulation/ide/edit"
     }
-  }, [_c('i-circle', {
+  }, [_c('Menu-item', {
     attrs: {
-      "percent": _vm.percent,
-      "stroke-color": _vm.color
-    }
-  }, [(_vm.percent == 100) ? _c('Icon', {
-    staticStyle: {
-      "color": "#5cb85c"
-    },
-    attrs: {
-      "type": "ios-checkmark-empty",
-      "size": "60"
-    }
-  }) : _c('span', {
-    staticStyle: {
-      "font-size": "24px"
-    }
-  }, [_vm._v(_vm._s(_vm.percent) + "%")])], 1)], 1), _vm._v(" "), _c('Col', {
-    attrs: {
-      "span": "4"
-    }
-  }, [_c('i-circle', {
-    attrs: {
-      "percent": 100,
-      "stroke-color": "#5cb85c"
+      "name": "1"
     }
   }, [_c('Icon', {
-    staticStyle: {
-      "color": "#5cb85c"
-    },
     attrs: {
-      "type": "ios-checkmark-empty",
-      "size": "60"
+      "type": "ios-paper"
     }
-  })], 1)], 1), _vm._v(" "), _c('Col', {
+  }), _vm._v("\n                                代码编辑\n                            ")], 1)], 1), _vm._v(" "), _c('router-link', {
     attrs: {
-      "span": "4"
+      "to": "/simulation/ide/result"
     }
-  }, [_c('i-circle', {
+  }, [_c('Menu-item', {
     attrs: {
-      "percent": 35,
-      "stroke-color": "#ff5500"
+      "name": "2"
     }
-  }, [_c('span', {
-    staticClass: "demo-i-circle-inner"
   }, [_c('Icon', {
-    staticStyle: {
-      "color": "#ff5500"
-    },
     attrs: {
-      "type": "ios-close-empty",
-      "size": "50"
+      "type": "arrow-right-b"
     }
-  })], 1)])], 1)], 1)], 1)
+  }), _vm._v("\n                                仿真结果\n                            ")], 1)], 1), _vm._v(" "), _c('router-link', {
+    attrs: {
+      "to": "/simulation/ide/analysis"
+    }
+  }, [_c('Menu-item', {
+    attrs: {
+      "name": "3"
+    }
+  }, [_c('Icon', {
+    attrs: {
+      "type": "stats-bars"
+    }
+  }), _vm._v("\n                                统计分析\n\n                            ")], 1)], 1), _vm._v(" "), _c('router-link', {
+    attrs: {
+      "to": "/simulation/ide/setting"
+    }
+  }, [_c('Menu-item', {
+    attrs: {
+      "name": "4"
+    }
+  }, [_c('Icon', {
+    attrs: {
+      "type": "settings"
+    }
+  }), _vm._v("\n                                综合设置\n                            ")], 1)], 1)], 1), _vm._v(" "), _c('br'), _vm._v(" "), _c('div', {
+    staticClass: "layout-content-main"
+  }, [_c('router-view')], 1), _vm._v(" "), _c('div', {
+    staticClass: "layout-copy"
+  }, [_vm._v("\n        2011-2017 ©laynezhou\n    ")])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-f83e3a42", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-73a9a533", module.exports)
   }
 }
 

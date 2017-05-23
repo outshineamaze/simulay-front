@@ -11,8 +11,8 @@
             <Spin size="large" fix v-if="spinShow"></Spin>
 
             <div style="text-align:center; overflow: hidden">
-                <img src="/dist/logo.png" style="max-width: 330px"/>
-                <h3>logo</h3>
+                <img src="/dist/images/default.png" style="max-width: 330px"/>
+                <h3>3D曲面绘制</h3>
             </div>
         </Card>
         </Col>

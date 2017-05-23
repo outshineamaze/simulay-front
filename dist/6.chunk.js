@@ -1,11 +1,15 @@
 webpackJsonp([6],{
 
-/***/ 28:
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(57)
 
 var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(43),
+  __webpack_require__(41),
   /* template */
   __webpack_require__(65),
   /* scopeId */
@@ -13,9 +17,9 @@ var Component = __webpack_require__(4)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/laynezhou/graduate_design/simulay/simulay-front/src/views/ide.vue"
+Component.options.__file = "/Users/laynezhou/graduate_design/simulay/simulay-front/src/components/result.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] ide.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] result.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -24,9 +28,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-73a9a533", Component.options)
+    hotAPI.createRecord("data-v-1181ce60", Component.options)
   } else {
-    hotAPI.reload("data-v-73a9a533", Component.options)
+    hotAPI.reload("data-v-1181ce60", Component.options)
   }
 })()}
 
@@ -35,7 +39,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 43:
+/***/ 41:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77,19 +81,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
-        return {};
+        return {
+            spinShow: true
+        };
     },
     computed: {},
+    methods: {},
     mounted() {
-        console.log(this.$route.params.simulationId);
-    }
+        setTimeout(() => {
+            this.spinShow = false;
+        }, 500);
+    },
+    beforeDestroy() {}
 });
+
+/***/ }),
+
+/***/ 57:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -97,71 +111,94 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('Menu', {
+  return _c('div', [_c('Row', {
+    staticClass: "result-row-content",
     attrs: {
-      "mode": "horizontal",
-      "theme": _vm.theme1,
-      "active-name": "1"
+      "type": "flex",
+      "justify": "center",
+      "align": "middle"
     }
-  }, [_c('router-link', {
+  }, [_c('Col', {
     attrs: {
-      "to": "/simulation/ide/edit"
+      "span": "10"
     }
-  }, [_c('Menu-item', {
+  }, [_c('Card', {
+    staticStyle: {
+      "width": "350px"
+    }
+  }, [(_vm.spinShow) ? _c('Spin', {
     attrs: {
-      "name": "1"
+      "size": "large",
+      "fix": ""
     }
-  }, [_c('Icon', {
+  }) : _vm._e(), _vm._v(" "), _c('div', {
+    staticStyle: {
+      "text-align": "center",
+      "overflow": "hidden"
+    }
+  }, [_c('img', {
+    staticStyle: {
+      "max-width": "330px"
+    },
     attrs: {
-      "type": "ios-paper"
+      "src": "/dist/images/default.png"
     }
-  }), _vm._v("\n                                代码编辑\n                            ")], 1)], 1), _vm._v(" "), _c('router-link', {
+  }), _vm._v(" "), _c('h3', [_vm._v("3D曲面绘制")])])], 1)], 1), _vm._v(" "), _c('Col', {
     attrs: {
-      "to": "/simulation/ide/result"
+      "span": "10"
     }
-  }, [_c('Menu-item', {
+  }, [_c('Card', {
+    staticStyle: {
+      "width": "350px",
+      "height": "300px"
+    }
+  }, [(_vm.spinShow) ? _c('Spin', {
     attrs: {
-      "name": "2"
+      "size": "large",
+      "fix": ""
     }
-  }, [_c('Icon', {
+  }) : _vm._e()], 1)], 1)], 1), _vm._v(" "), _c('Row', {
+    staticClass: "result-row-content",
     attrs: {
-      "type": "arrow-right-b"
+      "type": "flex",
+      "justify": "center",
+      "align": "middle"
     }
-  }), _vm._v("\n                                仿真结果\n                            ")], 1)], 1), _vm._v(" "), _c('router-link', {
+  }, [_c('Col', {
     attrs: {
-      "to": "/simulation/ide/analysis"
+      "span": "10"
     }
-  }, [_c('Menu-item', {
+  }, [_c('Card', {
+    staticStyle: {
+      "width": "350px",
+      "height": "300px"
+    }
+  }, [(_vm.spinShow) ? _c('Spin', {
     attrs: {
-      "name": "3"
+      "size": "large",
+      "fix": ""
     }
-  }, [_c('Icon', {
+  }) : _vm._e()], 1)], 1), _vm._v(" "), _c('Col', {
     attrs: {
-      "type": "stats-bars"
+      "span": "10"
     }
-  }), _vm._v("\n                                统计分析\n\n                            ")], 1)], 1), _vm._v(" "), _c('router-link', {
+  }, [_c('Card', {
+    staticStyle: {
+      "width": "350px",
+      "height": "350px"
+    }
+  }, [(_vm.spinShow) ? _c('Spin', {
     attrs: {
-      "to": "/simulation/ide/setting"
+      "size": "large",
+      "fix": ""
     }
-  }, [_c('Menu-item', {
-    attrs: {
-      "name": "4"
-    }
-  }, [_c('Icon', {
-    attrs: {
-      "type": "settings"
-    }
-  }), _vm._v("\n                                综合设置\n                            ")], 1)], 1)], 1), _vm._v(" "), _c('br'), _vm._v(" "), _c('div', {
-    staticClass: "layout-content-main"
-  }, [_c('router-view')], 1), _vm._v(" "), _c('div', {
-    staticClass: "layout-copy"
-  }, [_vm._v("\n        2011-2017 ©laynezhou\n    ")])], 1)
+  }) : _vm._e()], 1)], 1)], 1)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-73a9a533", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-1181ce60", module.exports)
   }
 }
 
