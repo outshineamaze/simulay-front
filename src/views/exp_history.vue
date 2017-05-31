@@ -16,50 +16,41 @@
     }
 </style>
 <template>
-    <div class="exp_list">
+    <div>
+    <div class="exp_list" v-for="exp in expList">
+        <router-link  :to='{ path: "/simulation/ide/" + exp._id + "/edit" }' >
         <Card  class="exp_list_item" >
             <div style="text-align:center">
-                <h3>仿真</h3>
+                <h3>{{exp._id}}</h3>
+                <h5>{{exp.date}}</h5>
             </div>
         </Card>
+        </router-link>
+    </div>
 
-        <Card class="exp_list_item" >
-            <div style="text-align:center">
-                <h3>仿真</h3>
-            </div>
-        </Card>
-        <Card class="exp_list_item" >
-            <div style="text-align:center">
-                <h3>仿真</h3>
-            </div>
-        </Card>
-        <Card class="exp_list_item" >
-            <div style="text-align:center">
-                <h3>仿真</h3>
-            </div>
-        </Card>
-        <Card class="exp_list_item" >
-            <div style="text-align:center">
-                <h3>仿真</h3>
-            </div>
-        </Card>
-
-        <div class="exp_list_page">
-            <Page :total="100"></Page>
-        </div>
-
+        <!--<div class="exp_list_page">-->
+            <!--<Page :total="100"></Page>-->
+        <!--</div>-->
     </div>
 
 </template>
 <script>
+    import codeService from '../services/code.js'
     export default {
         data () {
             return {
+                expList: []
             }
         },
         computed: {
         },
         mounted() {
+            let that = this;
+            codeService.pullHistory({page: 1, pageSize: 10}).then(
+                    function (result) {
+                        that.expList = result;
+                        console.log(that.expList)
+            });
         }
     }
 </script>

@@ -1,13 +1,13 @@
 webpackJsonp([8],{
 
-/***/ 29:
+/***/ 28:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(4)(
   /* script */
   __webpack_require__(46),
   /* template */
-  __webpack_require__(72),
+  __webpack_require__(71),
   /* scopeId */
   null,
   /* cssModules */
@@ -85,7 +85,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 72:
+/***/ 71:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -126,4 +126,3 @@ if (false) {
 /***/ })
 
 });
-//# sourceMappingURL=8.chunk.js.map

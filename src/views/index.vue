@@ -1,6 +1,6 @@
 <template>
     <div class="layout">
-        <Menu mode="horizontal"  theme="dark" active-name="1">
+        <Menu mode="horizontal" theme="light" active-name="1">
             <div class="layout-logo"></div>
             <div class="layout-nav">
                 <router-link to="/code">

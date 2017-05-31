@@ -1,16 +1,16 @@
-webpackJsonp([0],Array(23).concat([
-/* 23 */
+webpackJsonp([0],Array(22).concat([
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(62)
+__webpack_require__(61)
 
 var Component = __webpack_require__(4)(
   /* script */
   __webpack_require__(40),
   /* template */
-  __webpack_require__(71),
+  __webpack_require__(70),
   /* scopeId */
   null,
   /* cssModules */
@@ -37,6 +37,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 23 */,
 /* 24 */,
 /* 25 */,
 /* 26 */,
@@ -45,8 +46,7 @@ module.exports = Component.exports
 /* 29 */,
 /* 30 */,
 /* 31 */,
-/* 32 */,
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -239,6 +239,75 @@ module.exports = Component.exports
   });
 });
 
+
+/***/ }),
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+function encodeUrl(params) {
+    let urlEncode = Object.keys(params).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])).join('&');
+    return urlEncode;
+}
+class codeService {
+    edit(data) {
+        let params = data || {};
+        let opts = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        };
+
+        return fetch('/simulation/ide/runcode', opts).then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                alert("网络请求失败" + res.status);
+            }
+        });
+    }
+
+    getCode(data) {
+        let params = data || {};
+        let opts = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        return fetch('/simulation/ide/getcode?' + encodeUrl(params), opts).then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                alert("网络请求失败" + res.status);
+            }
+        });
+    }
+
+    pullHistory(data) {
+        let params = data || {};
+        let opts = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        };
+
+        return fetch('/simulation/history', opts).then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                alert("网络请求失败" + res.status);
+            }
+        });
+    }
+}
+
+// 实例化后导出，全局单例
+/* harmony default export */ __webpack_exports__["a"] = (new codeService());
 
 /***/ }),
 /* 34 */
@@ -824,7 +893,7 @@ module.exports = Component.exports
 
 (function(mod) {
   if (true) // CommonJS
-    mod(__webpack_require__(3), __webpack_require__(33), __webpack_require__(37));
+    mod(__webpack_require__(3), __webpack_require__(32), __webpack_require__(37));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "./searchcursor", "../scroll/annotatescrollbar"], mod);
   else // Plain browser env
@@ -925,7 +994,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_code_js__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_code_js__ = __webpack_require__(33);
 //
 //
 //
@@ -1010,39 +1079,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 // styleSelectedText
-__webpack_require__(86);
-__webpack_require__(33);
+__webpack_require__(85);
+__webpack_require__(32);
 
 // hint
-__webpack_require__(82);
-__webpack_require__(56);
-__webpack_require__(85);
+__webpack_require__(81);
+__webpack_require__(55);
+__webpack_require__(84);
 
 // highlightSelectionMatches
 __webpack_require__(37);
 __webpack_require__(38);
-__webpack_require__(33);
-__webpack_require__(83);
+__webpack_require__(32);
+__webpack_require__(82);
 
 // keyMap
-__webpack_require__(88);
-__webpack_require__(35);
-__webpack_require__(75);
-__webpack_require__(34);
-__webpack_require__(54);
-__webpack_require__(33);
-__webpack_require__(84);
 __webpack_require__(87);
+__webpack_require__(35);
+__webpack_require__(74);
+__webpack_require__(34);
+__webpack_require__(53);
+__webpack_require__(32);
+__webpack_require__(83);
+__webpack_require__(86);
 
 // foldGutter
-__webpack_require__(55);
+__webpack_require__(54);
+__webpack_require__(75);
 __webpack_require__(76);
-__webpack_require__(77);
 __webpack_require__(36);
+__webpack_require__(77);
 __webpack_require__(78);
 __webpack_require__(79);
 __webpack_require__(80);
-__webpack_require__(81);
 
 
 
@@ -1174,72 +1243,9 @@ const getCodeFromStorage = () => {
 /* 51 */,
 /* 52 */,
 /* 53 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-function encodeUrl(params) {
-    let urlEncode = Object.keys(params).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])).join('&');
-    return urlEncode;
-}
-class codeService {
-    edit(data) {
-        let params = data || {};
-        let opts = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        };
-
-        return fetch('/simulation/ide/runcode', opts).then(function (response) {
-            if (response.ok) {
-                return response.json();
-            } else {
-                alert("网络请求失败" + res.status);
-            }
-        });
-    }
-
-    getCode(data) {
-        let params = data || {};
-        let opts = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        };
-
-        return fetch('/simulation/ide/getcode?' + encodeUrl(params), opts).then(function (response) {
-            if (response.ok) {
-                return response.json();
-            } else {
-                alert("网络请求失败" + res.status);
-            }
-        });
-    }
-
-    pullHistory(data) {
-        let params = data || {};
-        let opts = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        };
-
-        return fetch('/simulation/history', opts).then(function (response) {
-            if (response.ok) {
-                return response.json();
-            } else {
-                alert("网络请求失败" + res.status);
-            }
-        });
-    }
-}
-
-// 实例化后导出，全局单例
-/* harmony default export */ __webpack_exports__["a"] = (new codeService());
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 54 */
@@ -1254,23 +1260,18 @@ class codeService {
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 56 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 56 */,
 /* 57 */,
 /* 58 */,
 /* 59 */,
 /* 60 */,
-/* 61 */,
-/* 62 */
+/* 61 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
+/* 62 */,
 /* 63 */,
 /* 64 */,
 /* 65 */,
@@ -1278,8 +1279,7 @@ class codeService {
 /* 67 */,
 /* 68 */,
 /* 69 */,
-/* 70 */,
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1446,10 +1446,10 @@ if (false) {
 }
 
 /***/ }),
+/* 71 */,
 /* 72 */,
 /* 73 */,
-/* 74 */,
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -1668,7 +1668,7 @@ if (false) {
 
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -1779,7 +1779,7 @@ CodeMirror.registerHelper("fold", "include", function(cm, start) {
 
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -1844,7 +1844,7 @@ CodeMirror.registerGlobalHelper("fold", "comment", function(mode) {
 
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -1996,7 +1996,7 @@ CodeMirror.registerGlobalHelper("fold", "comment", function(mode) {
 
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -2050,7 +2050,7 @@ CodeMirror.registerHelper("fold", "indent", function(cm, start) {
 
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -2105,7 +2105,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -2293,7 +2293,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -2737,7 +2737,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -2908,7 +2908,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -2924,7 +2924,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 (function(mod) {
   if (true) // CommonJS
-    mod(__webpack_require__(3), __webpack_require__(33), __webpack_require__(34));
+    mod(__webpack_require__(3), __webpack_require__(32), __webpack_require__(34));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "./searchcursor", "../dialog/dialog"], mod);
   else // Plain browser env
@@ -3166,7 +3166,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -3244,7 +3244,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -3369,7 +3369,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -3380,7 +3380,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 (function(mod) {
   if (true) // CommonJS
-    mod(__webpack_require__(3), __webpack_require__(33), __webpack_require__(35));
+    mod(__webpack_require__(3), __webpack_require__(32), __webpack_require__(35));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../lib/codemirror", "../addon/search/searchcursor", "../addon/edit/matchbrackets"], mod);
   else // Plain browser env
@@ -3971,7 +3971,7 @@ CodeMirror.registerHelper("fold", "markdown", function(cm, start) {
 
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
@@ -4767,4 +4767,3 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
 
 /***/ })
 ]));
-//# sourceMappingURL=0.chunk.js.map

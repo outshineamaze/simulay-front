@@ -13,12 +13,14 @@
 </style>
 <template>
     <div class="list_teach">
+        <router-link  :to='{ path: "/simulation/ide/592eadb9b09a4a7da8d6371d/edit" }'>
             <Card  class="list_teach_item" >
                 <div style="text-align:center; overflow: hidden">
-                    <img src="/dist/images/default.png" style="max-width: 330px;width: 100%"/>
-                    <h3>3D曲面绘制</h3>
+                    <img src="//simulay.outshine.me/image/95b3cb57e40bc9e7a7f338802b4d77f0/figure2.svg" style="max-width: 330px;width: 100%"/>
+                    <h3>OFDM系统仿真</h3>
                 </div>
             </Card>
+        </router-link>
 
         <Card class="list_teach_item" >
             <div style="text-align:center">

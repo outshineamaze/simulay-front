@@ -1,25 +1,25 @@
-webpackJsonp([2],{
+webpackJsonp([4],{
 
-/***/ 31:
+/***/ 29:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(59)
+__webpack_require__(57)
 
 var Component = __webpack_require__(4)(
   /* script */
-  __webpack_require__(48),
+  __webpack_require__(47),
   /* template */
-  __webpack_require__(68),
+  __webpack_require__(65),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/laynezhou/graduate_design/simulay/simulay-front/src/views/list_teach.vue"
+Component.options.__file = "/Users/laynezhou/graduate_design/simulay/simulay-front/src/views/list_custom.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] list_teach.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] list_custom.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -28,9 +28,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4385f41b", Component.options)
+    hotAPI.createRecord("data-v-190713bb", Component.options)
   } else {
-    hotAPI.reload("data-v-4385f41b", Component.options)
+    hotAPI.reload("data-v-190713bb", Component.options)
   }
 })()}
 
@@ -39,14 +39,11 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 48:
+/***/ 47:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
 //
 //
 //
@@ -101,75 +98,59 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 59:
+/***/ 57:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 68:
+/***/ 65:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "list_teach"
-  }, [_c('router-link', {
-    attrs: {
-      "to": {
-        path: "/simulation/ide/592eadb9b09a4a7da8d6371d/edit"
-      }
-    }
   }, [_c('Card', {
     staticClass: "list_teach_item"
   }, [_c('div', {
     staticStyle: {
-      "text-align": "center",
-      "overflow": "hidden"
+      "text-align": "center"
     }
-  }, [_c('img', {
-    staticStyle: {
-      "max-width": "330px",
-      "width": "100%"
-    },
-    attrs: {
-      "src": "//simulay.outshine.me/image/95b3cb57e40bc9e7a7f338802b4d77f0/figure2.svg"
-    }
-  }), _vm._v(" "), _c('h3', [_vm._v("OFDM系统仿真")])])])], 1), _vm._v(" "), _c('Card', {
+  }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
     staticClass: "list_teach_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_c('h3', [_vm._v("PCM编译码")])])]), _vm._v(" "), _c('Card', {
+  }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
     staticClass: "list_teach_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_c('h3', [_vm._v("数字调制")])])]), _vm._v(" "), _c('Card', {
+  }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
     staticClass: "list_teach_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_c('h3', [_vm._v("数字基带信号与AMI/HDB3编译码")])])]), _vm._v(" "), _c('Card', {
+  }, [_c('h3', [_vm._v("仿真")])])]), _vm._v(" "), _c('Card', {
     staticClass: "list_teach_item"
   }, [_c('div', {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_c('h3', [_vm._v("时分复用2DPSK、2FSK通信系统")])])])], 1)
+  }, [_c('h3', [_vm._v("仿真")])])])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-4385f41b", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-190713bb", module.exports)
   }
 }
 
 /***/ })
 
 });
-//# sourceMappingURL=2.chunk.js.map

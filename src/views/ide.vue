@@ -1,35 +1,16 @@
 <template>
     <div>
-                        <Menu mode="horizontal" :theme="theme1" active-name="1">
-                            <router-link to="/simulation/ide/edit">
-                                <Menu-item name="1">
-                                    <Icon type="ios-paper"></Icon>
-                                    代码编辑
+                        <Menu mode="horizontal" theme="light" :active-name="activeTab">
+                        <div v-for="(link, index) in links" >
+                            <router-link :to="link.path">
+                                <Menu-item :name="index">
+                                    <Icon :type="link.ico_class"></Icon>
+                                    {{link.name}}
                                 </Menu-item>
                             </router-link>
-                            <router-link to="/simulation/ide/result">
-                                <Menu-item name="2">
-                                    <Icon type="arrow-right-b"></Icon>
-                                    仿真结果
-                                </Menu-item>
-                            </router-link>
-                            <router-link to="/simulation/ide/analysis">
-                                <Menu-item name="3">
 
-                                    <Icon type="stats-bars"></Icon>
-                                    统计分析
-
-                                </Menu-item>
-                            </router-link>
-                            <router-link to="/simulation/ide/setting">
-                                <Menu-item name="4">
-                                    <Icon type="settings"></Icon>
-                                    综合设置
-                                </Menu-item>
-                            </router-link>
+                            </div>
                         </Menu>
-                        <br>
-
                     <div class="layout-content-main">
                         <router-view></router-view>
         </div>
@@ -42,13 +23,27 @@
     export default {
         data () {
             return {
+                activeTab : '',
+                links: [
+                        { path: '/simulation/ide/edit', name: '代码编辑', ico_class: 'ios-paper' },
+                        { path: '/simulation/ide/result', name: '仿真结果', ico_class: 'arrow-right-b'},
+                        { path: '/simulation/ide/analysis', name: '统计分析', ico_class: 'stats-bars' },
+                        { path: '/simulation/ide/setting', name: '综合设置', ico_class: 'settings'},
+                    ],
 
             }
         },
         computed: {
         },
         mounted() {
-            console.log(this.$route.params.simulationId)
+            let path = window.location.hash;
+            for (var i = 0; i < this.links.length; i++) {
+                if (('#' + this.links[i].path) == path) {
+                    console.log(path);
+                    this.activeTab = i;
+                    break;
+                }
             }
+        },
     }
 </script>

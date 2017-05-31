@@ -1,17 +1,17 @@
-webpackJsonp([2],{
+webpackJsonp([3],{
 
-/***/ 31:
+/***/ 30:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(59)
+__webpack_require__(58)
 
 var Component = __webpack_require__(4)(
   /* script */
   __webpack_require__(48),
   /* template */
-  __webpack_require__(68),
+  __webpack_require__(67),
   /* scopeId */
   null,
   /* cssModules */
@@ -101,14 +101,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 59:
+/***/ 58:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 68:
+/***/ 67:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -172,4 +172,3 @@ if (false) {
 /***/ })
 
 });
-//# sourceMappingURL=2.chunk.js.map

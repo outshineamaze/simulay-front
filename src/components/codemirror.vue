@@ -42,7 +42,7 @@
                 </a>
                 <div class="CodeMirror-Container">
                 <!-- codemirror -->
-                <codemirror v-model="code"
+                <codemirror v-model="content"
                             ref="myEditor"
                             :options="editorOption" 
                             @change="onEditorCodeChange">
@@ -125,12 +125,14 @@
             stdin : that.stdin,
             cmd :'',
             name : 'main.m',
-            content : that.code
+            content : that.content
         }
 
         codeService.edit(codeStruct).then(function (result) {
             console.log(result.stdout);
             that.stdout = result.stdout;
+            window.localStorage.setItem('current_images', JSON.stringify(result.images));
+            console.log(result.images);
             if (that.stdout) {
                 that.tabIndex = 'stdout';
             }
@@ -139,13 +141,10 @@
     const getCodeFromStorage = () => {
         return window.localStorage.getItem('current_code');
     }
-
     export default {
         data() {
-            var defaultCode = '1+1';
-            var currentCode = getCodeFromStorage();
             return {
-                code : currentCode === null ? defaultCode : currentCode,
+                content : '',
                 stdin: '',
                 stdout: '',
                 tabIndex: "stdin",
@@ -194,6 +193,23 @@
         mounted() {
 
             console.log(this.$route.params.simulationId);
+            if (this.$route.params.simulationId) {
+                codeService.getCode({
+                    id: this.$route.params.simulationId
+                }).then((data) => {
+                    console.log(data);
+                if (data.content) {
+                    this.content = data.content;
+                    this.stdout = data.stdout;
+                    this.stdin  = data.stdin;
+                    window.localStorage.setItem('current_images', JSON.stringify(data.images));
+                } else {
+                    this.content = getCodeFromStorage();
+                }
+            });
+            } else {
+                this.content = getCodeFromStorage();
+            }
             setTimeout(() => {
                 this.editorOption.lineNumbers = true
             this.editorOption.styleActiveLine = true
@@ -202,17 +218,17 @@
             this.editor.setSize('auto', '445');
         },
         beforeDestroy () {
-            if (this.code !== window.localStorage.getItem('current_code')) {
-                this.$Modal.confirm({
-                            title: '',
-                            content: '是否保存代码',
-                            onOk: () => {
-                                window.localStorage.setItem('current_code', this.code);
-                                this.$Message.info('保存成功');
-                            },
-            });
-            }
-            window.localStorage.removeItem('code_temp');
+//            if (this.content !== window.localStorage.getItem('current_code')) {
+//                this.$Modal.confirm({
+//                            title: '',
+//                            content: '是否保存代码',
+//                            onOk: () => {
+//                                window.localStorage.setItem('current_code', this.content);
+//                                this.$Message.info('保存成功');
+//                            },
+//            });
+//            }
+            window.localStorage.setItem('current_code', this.content);
         },
     }
 </script>
